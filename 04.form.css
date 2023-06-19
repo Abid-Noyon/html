@@ -1,0 +1,49 @@
+.contact_form {
+    background-color: azure;
+    margin-top: 20vw;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    border: 2px;
+    border-radius: 20px;
+    padding: 25px;
+
+}
+
+/*
+h1 {
+    text-align: center;
+}
+*/
+
+h1 {
+    text-align: center;
+    border-style: solid solid solid solid; 
+    border-width: 10px 15px 20px 25px;
+    border-color: blue peru purple cyan;
+    border-radius: 10px;
+    padding: 20px 20px;
+}
+
+label {
+    margin-top: 22vw;
+    margin-left: 21vw;
+
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    margin-left: 21vw; 
+
+}
+
+.submit {
+    margin-left: 25.5vw;
+    text-align: center;
+    margin-top: 8px;
+}
+
+body {
+    background-image: url(Favicon.png);
+    opacity: 1;
+}

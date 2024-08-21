@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width= , initial-scale=1.0" />
+    <title>Cat photo app</title>
+</head>
+
+<body>
+    <h2>CatPhotoApp</h2>
+    <main>
+        <h3>Cat Photos</h3>
+        <p>Click here to view more <a href="#" target="_blank">cat photos.</a></p>
+        <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+            alt="5 cats are walking in the field." />
+        <h3>Cat lists</h3>
+        <div class="lists">
+            <p>Things cats <em>love </em>:</p>
+            <ul>
+                <li>cat nip</li>
+                <li>laser pointers</li>
+                <li>lasagna</li>
+            </ul>
+            <img src="lasagna.jpg" alt="lasagna" />
+            <p>Top 3 things cats <strong>hate</strong>:</p>
+            <ol>
+                <li>flea treatment</li>
+                <li>thunder</li>
+                <li>other cats</li>
+            </ol>
+        </div>
+        <img src="https://cdn.freecodecamp.org/youtube/html-course/cats.jpg" alt="A sad cat standing" />
+        <form action="/submit-cat-photo">
+            <label for="indoor"><input id="indoor" type="radio" name="indoor-outdoor" checked />
+                Indoor</label><br />
+            <label for="outdoor"><input id="outdoor" type="radio" name="indoor-outdoor" />
+                Outdoor</label><br />
+            <label for="loving">
+                <input id="loving" name="personality" type="checkbox" checked />
+                Loving</label><br />
+            <label for="lazy">
+                <input id="lazy" name="personality" type="checkbox" /> lazy</label><br />
+            <label for="Energetic">
+                <input id="Energetic" name="personality" type="checkbox" />
+                Energetic</label><br />
+            <input type="text" placeholder="cat photo URL" required /><br />
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+    <footer>
+        <p>
+            <small>No Copyright -
+                <a href="https://freecodecamp.org" target="_blank">freeCodeCamp.org</a>
+            </small>
+        </p>
+    </footer>
+</body>
+
+</html>

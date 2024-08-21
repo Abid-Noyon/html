@@ -1,0 +1,25 @@
+h1, h2, h3, h4{
+    background-color: red;
+    display: inline;
+    font-size: 25px;
+    font-weight: 800;
+}
+.newnewdiv{
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+}
+
+/* .first div{ 
+    flex-shrink: 0;
+} */
+
+.newnewdiv div{
+    height: 50px;
+    width: 150px;
+    flex-basis: 300px;
+    background-color: yellow;
+    border: 2px solid orange;
+    border-radius: 20px;
+    margin: 10px;
+}

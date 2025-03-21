@@ -1,0 +1,225 @@
+<!-- this is floating contact button, ends at 225 line -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Contact Buttons</title>
+
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+    <style>
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #consultation-btn {
+            background: #0B8043;
+            color: white;
+            font-size: 14px;
+            padding: 15px 10px;
+            border-radius: 50px;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        #whatsapp-btn {
+            background: #25D366;
+            animation: pulse 1.5s infinite;
+        }
+
+        #whatsapp-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+        #others-btn {
+            background: #1b73e8;
+            position: relative;
+        }
+
+        #others-btn img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .hidden-contacts {
+            position: absolute;
+            bottom: 0;
+            right: 70px;
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .show-contacts .hidden-contacts {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .floating-btn:hover,
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-buttons {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            #consultation-btn {
+                font-size: 12px;
+                min-width: 150px;
+                padding: 10px;
+            }
+
+            .contact-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-buttons">
+        <div id="consultation-btn">📅 Your Free Consultation</div>
+
+        <a href="https://wa.me/8801601872024?text=Hello%2C%20Promely%21%20I%20need%20a%20website%20and%20digital%20presence.%20Can%20we%20discuss%20this%3F" target="_blank" class="floating-btn" id="whatsapp-btn">
+            <img src="https://www.promely.com/wp-content/uploads/2025/02/WhatsApp.svg" alt="WhatsApp">
+        </a>
+
+        <div class="floating-btn" id="others-btn">
+            <img src="https://www.promely.com/wp-content/uploads/2025/02/Google_Contacts_icon.svg" alt="Others">
+        </div>
+
+        <div class="hidden-contacts">
+            <a href="https://m.me/PromelyBrand" target="_blank" class="contact-icon"
+                style="background: #1B73E8;">
+                <img src="https://www.promely.com/wp-content/uploads/2025/02/Facebook_Messenger.svg"
+                    alt="Messenger">
+            </a>
+            <a href="tel:+8801601872024" target="_blank" class="contact-icon"
+                style="background: #0088cc;">
+                <img src="https://www.promely.com/wp-content/uploads/2025/02/Circle-icons-phone.svg" alt="Contact">
+            </a>
+            <a href="mailto:contact@promely.com" class="contact-icon" style="background: #D44638;">
+                <img src="https://www.promely.com/wp-content/uploads/2025/02/Gmail_icon.svg" alt="Email">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const othersBtn = document.getElementById('others-btn');
+            const hiddenContacts = document.querySelector('.hidden-contacts');
+            const floatingButtons = document.querySelector('.floating-buttons');
+
+            othersBtn.addEventListener('mouseenter', function () {
+                floatingButtons.classList.add('show-contacts');
+            });
+
+            floatingButtons.addEventListener('mouseleave', function (event) {
+                if (!floatingButtons.contains(event.relatedTarget)) {
+                    floatingButtons.classList.remove('show-contacts');
+                }
+            });
+        });
+    </script>
+
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+        (function () {
+            window.addEventListener('load', function () {
+                const consultationBtn = document.getElementById("consultation-btn");
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2jzSvGcrb0hs_eqOfjP-hKd07sK96dGku_XeVEZpFepwHbp_IQx0YK5OnGe9EieZoYTJwadCqi?gv=true',
+                    color: '#0B8043',
+                    label: "Book Now 👈🏻",
+                    target: consultationBtn
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
+<!-- floating contact button, ends at 225 line -->

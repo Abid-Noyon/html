@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand - Galaxy S25 Ultra & iPhone 16 Pro Max</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .phones {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            padding: 50px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+        }
+
+        .phone {
+            text-align: center;
+        }
+
+        .phone img {
+            width: 250px;
+            height: auto;
+            transition: transform 0.5s;
+        }
+
+        .phone:hover img {
+            transform: scale(1.1);
+        }
+
+        .buy-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background: #00bcd4;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #008ba3;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Your Brand</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <h1>Experience Innovation: Galaxy S25 Ultra & iPhone 16 Pro Max</h1>
+    </section>
+    <section class="phones">
+        <div class="phone">
+            <img src="https://images.samsung.com/bd/smartphones/galaxy-s25-ultra/buy/kv_global_PC_v2.jpg?imbypass=true" alt="Samsung Galaxy S25 Ultra">
+            <h2>Samsung Galaxy S25 Ultra</h2>
+            <a href="#" class="buy-btn">Buy Now</a>
+        </div>
+        <div class="phone">
+            <img src="https://via.placeholder.com/250" alt="iPhone 16 Pro Max">
+            <h2>iPhone 16 Pro Max</h2>
+            <a href="#" class="buy-btn">Buy Now</a>
+        </div>
+    </section>
+</body>
+
+</html>

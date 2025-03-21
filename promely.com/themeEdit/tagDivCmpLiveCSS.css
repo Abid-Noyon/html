@@ -1,0 +1,48 @@
+/* this is button color and shape changing for services page */
+.xxtdi_225 {
+    background-color: #4d76bb;
+}
+
+.xxtdi_225,
+.xxtdi_225:before {
+    border-radius: 50px;
+}
+
+.xxtdi_225 {
+    padding: 16px 26px 17px;
+    margin: 25px;
+    height: auto;
+    line-height: 1;
+    box-shadow: none;
+    font-family: var(--outfit-3) !important;
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    height: auto;
+    color: white;
+}
+
+.xxtdm-btn {
+    display: inline-block;
+    font-family: var(--td_default_google_font_2, 'Roboto', sans-serif);
+    text-align: center;
+    position: relative;
+    pointer-events: auto !important;
+
+}
+/* service button changing ends here */
+
+/* this is for login form login button size making 100% */
+form#loginForm {
+    width: 100%;
+}
+
+button#tds_login_button {
+    width: 100%;
+}
+/* ends: this is for login form login button size making 100% */
+
+
+<button class="td-login-google ai-style-change-1 td-fix-index ai-style-change-2">Log in With Google</button>

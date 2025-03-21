@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Contact Buttons</title>
+
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+    <style>
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, opacity 0.3s, transform 0.4s ease-in-out;
+        }
+
+        #consultation-btn {
+            background: #0B8043;
+            color: white;
+            font-size: 14px;
+            padding: 15px 10px;
+            border-radius: 50px;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        #whatsapp-btn {
+            background: #25D366;
+            animation: pulse 1.5s infinite;
+        }
+
+        #whatsapp-btn img,
+        #others-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+        #others-btn {
+            background: #3498db;
+            position: relative;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        #others-btn:hover {
+            transform: translateX(-10px);
+        }
+
+        .hidden-contacts {
+            position: absolute;
+            bottom: 0px;
+            right: 70;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            gap: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        #others-btn:hover+.hidden-contacts,
+        .hidden-contacts:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-10px);
+        }
+
+        .floating-btn:hover,
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .floating-buttons {
+                right: auto;
+                left: 10px;
+                bottom: 10px;
+                align-items: flex-start;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            #consultation-btn {
+                font-size: 12px;
+                min-width: 150px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="floating-buttons">
+        <div id="consultation-btn">📅 Free Consultation</div>
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="floating-btn" id="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+        <div class="floating-btn" id="others-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Points_of_interest_icon.svg" alt="Others">
+        </div>
+        <div class="hidden-contacts">
+            <a href="https://m.me/YOUR_FACEBOOK_USERNAME" target="_blank" class="contact-icon"
+                style="background: #0078FF;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Facebook_Messenger_logo_2020.svg"
+                    alt="Messenger">
+            </a>
+            <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="contact-icon"
+                style="background: #0088cc;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram">
+            </a>
+            <a href="mailto:your-email@example.com" class="contact-icon" style="background: #D44638;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email">
+            </a>
+        </div>
+    </div>
+
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+        (function () {
+            window.addEventListener('load', function () {
+                const consultationBtn = document.getElementById("consultation-btn");
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2jzSvGcrb0hs_eqOfjP-hKd07sK96dGku_XeVEZpFepwHbp_IQx0YK5OnGe9EieZoYTJwadCqi?gv=true',
+                    color: '#0B8043',
+                    label: "Book Your Free Consultation Now",
+                    target: consultationBtn
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

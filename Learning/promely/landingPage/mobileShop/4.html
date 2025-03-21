@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand - Galaxy S25 Ultra & iPhone 16 Pro Max</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+        }
+
+        .slide img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .slide h2 {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 24px;
+        }
+
+        .buy-btn {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: inline-block;
+            padding: 15px 30px;
+            background: #00bcd4;
+            color: #fff;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #008ba3;
+        }
+
+        .slider-controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-controls button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .slider-controls button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Your Brand</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Experience Innovation: Galaxy S25 Ultra & iPhone 16 Pro Max</h1>
+    </section>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="https://images.samsung.com/bd/smartphones/galaxy-s25-ultra/buy/product_color_silverBlue_PC.png?imbypass=true"
+                    alt="Samsung Galaxy S25 Ultra">
+                <h2>Samsung Galaxy S25 Ultra</h2>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+            <div class="slide">
+                <img src="https://www.apple.com/newsroom/images/2024/09/apple-debuts-iphone-16-pro-and-iphone-16-pro-max/tile/Apple-iPhone-16-Pro-hero-240909-lp.jpg.og.jpg?202501131555"
+                    alt="iPhone 16 Pro Max">
+                <h2>iPhone 16 Pro Max</h2>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
+        <div class="slider-controls">
+            <button onclick="prevSlide()">&#10094;</button>
+            <button onclick="nextSlide()">&#10095;</button>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        const slider = document.querySelector(".slider");
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentIndex = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+    </script>
+</body>
+
+</html>

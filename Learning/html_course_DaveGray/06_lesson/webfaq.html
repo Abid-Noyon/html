@@ -1,0 +1,132 @@
+<style>
+    .FAQ-ala-accordion {
+        border-width: 3px 3px 0 6px;
+        border-color: var(--custom-accent-3);
+        border-style: solid;
+        font-family: var(--global-1), Arial, sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        color: var(--custom-accent-3);
+        padding: 20px;
+        cursor: pointer;
+        position: relative;
+        line-height: 1.2;
+        transition: 1s ease;
+    }
+
+    .FAQ-ala-accordion .FAQ-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .FAQ-ala-accordion .FAQ-question .FAQ-ala-icon {
+        transition: 0.2s ease;
+        width: 14px;
+        margin-left: 10px;
+    }
+
+    .FAQ-ala-accordion-active .FAQ-ala-icon {
+        transform: rotate(180deg);
+        transition: 0.2s ease;
+    }
+
+    .FAQ-ala-accordion-container .FAQ-ala-accordion:last-child {
+        border-width: 3px 3px 6px 6px;
+    }
+
+    .FAQ-ala-accordion-active,
+    .FAQ-ala-accordion:hover {}
+
+    .FAQ-ala-panel {
+        font-size: 16px;
+        font-family: var(--global-2), Arial, sans-serif;
+        font-weight: 500;
+        padding: 10px 30px 0 0;
+        display: none;
+        line-height: 1.4;
+    }
+
+    .FAQ-ala-panel.show {
+        display: block;
+    }
+
+    @media all and (max-width:1018px) {
+        .FAQ-ala-accordion {
+            font-size: 18px;
+        }
+
+        .FAQ-ala-panel {
+            font-size: 14px;
+        }
+    }
+</style>
+<div class="FAQ-ala-accordion-container">
+    <div class="FAQ-ala-accordion">
+        <div class="FAQ-question">
+            Why does good content matter for my business?
+            <img width="14" height="14" alt="arrow faq" title="Arrow FAQ" class="FAQ-ala-icon"
+                src="https://demo.tagdiv.com/newspaper_coaching_pro/wp-content/uploads/2023/07/arrow-faq.png">
+        </div>
+        <div class="FAQ-ala-panel">
+            Good content helps build trust with your audience, improves SEO, and increases engagement, leading to more
+            leads
+            and
+            sales. At Promely, we craft content that resonates with your audience and strengthens your brand.
+        </div>
+    </div>
+
+    <div class="FAQ-ala-accordion">
+        <div class="FAQ-question">
+            How does Promely’s content help with SEO?
+            <img width="14" height="14" alt="arrow faq" title="Arrow FAQ" class="FAQ-ala-icon"
+                src="https://demo.tagdiv.com/newspaper_coaching_pro/wp-content/uploads/2023/07/arrow-faq.png">
+        </div>
+        <div class="FAQ-ala-panel">
+            We integrate strategic keywords, relevant to your business and audience, to boost your site’s visibility on
+            search
+            engines. Our content follows best SEO practices, driving more organic traffic to your site.
+        </div>
+    </div>
+
+    <div class="FAQ-ala-accordion">
+        <div class="FAQ-question">
+            Is it worth investing in content rather than going for cheaper options?
+            <img width="14" height="14" alt="arrow faq" title="Arrow FAQ" class="FAQ-ala-icon"
+                src="https://demo.tagdiv.com/newspaper_coaching_pro/wp-content/uploads/2023/07/arrow-faq.png">
+        </div>
+        <div class="FAQ-ala-panel">
+            Absolutely! Cheap content often lacks quality, originality, and effectiveness. Investing in well-crafted
+            content
+            from
+            Promely ensures your brand’s credibility and long-term growth, helping you stand out.
+        </div>
+    </div>
+
+    <div class="FAQ-ala-accordion">
+        <div class="FAQ-question">
+            How long will it take to see results?
+            <img width="14" height="14" alt="arrow faq" title="Arrow FAQ" class="FAQ-ala-icon"
+                src="https://demo.tagdiv.com/newspaper_coaching_pro/wp-content/uploads/2023/07/arrow-faq.png">
+        </div>
+        <div class="FAQ-ala-panel">
+            SEO and engagement improvements can start showing within a few weeks, but lasting results usually take a few
+            months.
+            With consistent, high-quality content, you’ll build an audience that sticks with you over time.
+        </div>
+    </div>
+
+
+</div>
+<script>
+    //do not modify
+    var acc = document.getElementsByClassName("FAQ-ala-accordion");
+    var i;
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("FAQ-ala-accordion-active");
+            var panel = this.querySelector('.FAQ-ala-panel');
+            panel.classList.toggle('show');
+        });
+    }
+</script>

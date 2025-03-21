@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Clearance</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .banner-content {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: #000;
+            text-align: center;
+            width: 90%;
+            /* Ensures text fits well on smaller screens */
+        }
+
+        .banner-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin: 10px 0;
+        }
+
+        .banner-content p {
+            font-size: 1.2rem;
+            margin: 10px 0 20px;
+        }
+
+        .banner-content a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #003366;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .banner-content a:hover {
+            background-color: #fff;
+            color: #003366;
+            border: 2px solid #003366;
+        }
+
+        /* Desktop Styles */
+        .banner img.mobile-image {
+            display: none;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .banner img.desktop-image {
+                display: none;
+            }
+
+            .banner img.mobile-image {
+                display: block;
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            .banner-content {
+                top: 35px;
+                /* Moves text closer to the top for mobile */
+                width: 100%;
+                padding: 0 10px;
+                /* Adds padding for better readability */
+            }
+
+            .banner-content h1 {
+                font-size: 2rem;
+            }
+
+            .banner-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <div class="banner-content">
+            <h1>FINAL<br>CLEARANCE</h1>
+            <p>Take 20% off 'Sale Must-Haves'</p>
+            <a href="#">DISCOVER MORE</a>
+        </div>
+        <img src="https://store.promely.com/wp-content/uploads/2024/12/slide_2340x.progressive.png.webp"
+            alt="Final Clearance Desktop" class="desktop-image">
+        <img src="https://store.promely.com/wp-content/uploads/2024/12/Rectangle_8_1048x.progressive.jpg"
+            alt="Final Clearance Mobile" class="mobile-image">
+    </div>
+</body>
+
+</html>

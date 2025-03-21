@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop by Category</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .categories {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 1172px;
+            margin: 0 auto;
+        }
+
+        .category {
+            width: 270px;
+            /* Ensures each div fits perfectly within the total width */
+            text-align: center;
+        }
+
+        .category img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .category:hover img {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .category-title {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .category-title:hover {
+            text-decoration: underline;
+            color: #003366;
+        }
+
+        .product-count {
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="categories">
+        <div class="category">
+            <img src="https://store.promely.com/wp-content/uploads/2024/12/03_594x.progressive.png.webp" alt="New">
+            <div class="category-title">New</div>
+            <div class="product-count">25 Products</div>
+        </div>
+        <div class="category">
+            <img src="https://store.promely.com/wp-content/uploads/2024/12/02_594x.progressive.png.webp" alt="Clothing">
+            <div class="category-title">Clothing</div>
+            <div class="product-count">20 Products</div>
+        </div>
+        <div class="category">
+            <img src="https://store.promely.com/wp-content/uploads/2024/12/03_594x.progressive.png.webp" alt="Shoes">
+            <div class="category-title">Shoes</div>
+            <div class="product-count">32 Products</div>
+        </div>
+        <div class="category">
+            <img src="https://store.promely.com/wp-content/uploads/2024/12/02_594x.progressive.png.webp"
+                alt="Accessories">
+            <div class="category-title">Accessories</div>
+            <div class="product-count">15 Products</div>
+        </div>
+    </div>
+</body>
+
+</html>

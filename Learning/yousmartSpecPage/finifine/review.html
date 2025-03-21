@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Looping Review Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            height: 100vh;
+        }
+
+        .slider {
+            width: 90%;
+            max-width: 1200px;
+            overflow: hidden;
+            position: relative;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review {
+            flex: 1;
+            max-width: calc(100% / 3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .designation {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .separator {
+            width: 50px;
+            height: 2px;
+            background-color: #ccc;
+            margin: 15px auto;
+        }
+
+        .review-text {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        /* Radio buttons */
+        .navigation {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .navigation input[type="radio"] {
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .navigation input[type="radio"]:checked {
+            background-color: #333;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .review {
+                max-width: calc(100% / 2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review {
+                max-width: 100%;
+            }
+
+            .review-text {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .review-text {
+                font-size: 13px;
+            }
+
+            .name {
+                font-size: 16px;
+            }
+
+            .designation {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider" id="slider">
+        <div class="slider-inner">
+            <!-- Review 1 -->
+            <div class="review">
+                <div class="profile-img">
+                    <img src="https://via.placeholder.com/100" alt="Reviewer 1">
+                </div>
+                <div class="name">Mir Subrina</div>
+                <div class="designation">Student, Jagannath University</div>
+                <div class="separator"></div>
+                <p class="review-text">
+                    I’ve purchased some food supplement products for my parents to solve their health issues. Within a
+                    month, I noticed they regained their health and became stronger than the past. Thanks Naturals.
+                </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review">
+                <div class="profile-img">
+                    <img src="https://via.placeholder.com/100" alt="Reviewer 2">
+                </div>
+                <div class="name">Dilip Kumar Roy</div>
+                <div class="designation">Engineer</div>
+                <div class="separator"></div>
+                <p class="review-text">
+                    I was searching for a perfect solution for my health problem for a long time but failed. I started
+                    taking Naturals regularly and noticed a significant improvement. All credit goes to Naturals.
+                </p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review">
+                <div class="profile-img">
+                    <img src="https://via.placeholder.com/100" alt="Reviewer 3">
+                </div>
+                <div class="name">Mohiuddin Sadique</div>
+                <div class="designation">Software Engineer</div>
+                <div class="separator"></div>
+                <p class="review-text">
+                    I’ve bought Moringa Super Food from Naturals. Really impressed by their communication, packaging
+                    quality, and quick delivery. Highly recommended!
+                </p>
+            </div>
+        </div>
+
+        <!-- Radio Buttons for Navigation -->
+        <div class="navigation">
+            <input type="radio" name="slider" class="nav-btn" id="btn-1" checked>
+            <input type="radio" name="slider" class="nav-btn" id="btn-2">
+            <input type="radio" name="slider" class="nav-btn" id="btn-3">
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider-inner');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        let index = 0;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            navButtons[index].checked = true;
+        }
+
+        function autoSlide() {
+            index = (index + 1) % navButtons.length;
+            updateSlider();
+        }
+
+        navButtons.forEach((button, btnIndex) => {
+            button.addEventListener('click', () => {
+                index = btnIndex;
+                updateSlider();
+            });
+        });
+
+        setInterval(autoSlide, 5000); // Slide every 5 seconds
+    </script>
+</body>
+
+</html>

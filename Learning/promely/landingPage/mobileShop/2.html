@@ -1,0 +1,419 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand | Flagship Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, #00ff88, #00ffee);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: logoReveal 1.5s ease;
+        }
+
+        /* Hero Sections */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .hero.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .phone-image {
+            position: absolute;
+            max-height: 70vh;
+            transition: transform 0.3s ease;
+        }
+
+        /* Navigation Dots */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            margin: 1rem 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #00ff88;
+            transform: scale(1.4);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Your Brand</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <div class="nav-dots">
+        <div class="dot active" data-section="0"></div>
+        <div class="dot" data-section="1"></div>
+    </div>
+
+    <section class="hero" id="samsung">
+        <img src="https://images.samsung.com/bd/smartphones/galaxy-s25-ultra/buy/kv_global_PC_v2.jpg?imbypass=true" alt="Samsung S25 Ultra" class="phone-image">
+    </section>
+
+    <section class="hero" id="iphone">
+        <img src="iphone-16.png" alt="iPhone 16 Pro Max" class="phone-image">
+    </section>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const heroes = document.querySelectorAll('.hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        heroes.forEach(hero => observer.observe(hero));
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSphere | Flagship Showdown</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        :root {
+            --samsung-accent: #00A8E8;
+            --iphone-accent: #86868B;
+            --bg-dark: #0A0A0F;
+            --text-primary: #F5F5F7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeOut 1s 2s forwards;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            background: linear-gradient(45deg, var(--samsung-accent), var(--iphone-accent));
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: logoGlow 2s infinite alternate;
+        }
+
+        /* Hero Sections */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            transform: translate(-25%, -50%);
+            z-index: -1;
+        }
+
+        .phone-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-image {
+            max-height: 80vh;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .specs-overlay {
+            position: absolute;
+            bottom: -100px;
+            left: 10%;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        /* Animated Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dot::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dot:hover::after {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes logoGlow {
+            from {
+                filter: drop-shadow(0 0 5px rgba(0, 168, 232, 0.3));
+            }
+
+            to {
+                filter: drop-shadow(0 0 15px rgba(0, 168, 232, 0.6));
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Dynamic Backgrounds */
+        #samsung {
+            background: linear-gradient(45deg, #000814 0%, #001220 100%),
+                url('https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=1920');
+            background-blend-mode: multiply;
+        }
+
+        #iphone {
+            background: linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 100%),
+                url('https://images.unsplash.com/photo-1607936854279-55e8a4c64888?auto=format&fit=crop&w=1920');
+            background-blend-mode: multiply;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preloader"></div>
+
+    <header class="header">
+        <div class="logo">TECHSPHERE</div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="nav-dots">
+        <div class="dot active" data-label="S25 Ultra" data-section="0"></div>
+        <div class="dot" data-label="16 Pro Max" data-section="1"></div>
+    </div>
+
+    <section class="hero" id="samsung">
+        <div class="phone-container">
+            <img src="https://images.samsung.com/is/image/samsung/assets/global/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-colors-mo.jpg"
+                alt="Samsung S25 Ultra" class="phone-image" data-parallax="0.2">
+            <div class="specs-overlay">
+                <h2>Galaxy S25 Ultra</h2>
+                <p>200MP Camera | Titanium Frame | 6.9" Dynamic AMOLED 2X</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero" id="iphone">
+        <div class="phone-container">
+            <img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.landing-big_2x.jpg"
+                alt="iPhone 16 Pro Max" class="phone-image" data-parallax="0.2">
+            <div class="specs-overlay">
+                <h2>iPhone 16 Pro Max</h2>
+                <p>A18 Bionic | 48MP Main Camera | 6.7" Super Retina XDR</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth Scroll Animation
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Phone Image Animations
+        gsap.utils.toArray('.phone-image').forEach(image => {
+            gsap.from(image, {
+                scrollTrigger: {
+                    trigger: image,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.5
+            });
+        });
+
+        // Parallax Effect
+        document.addEventListener('scroll', () => {
+            document.querySelectorAll('[data-parallax]').forEach(el => {
+                const speed = parseFloat(el.dataset.parallax);
+                el.style.transform = `translateY(${window.scrollY * speed}px)`;
+            });
+        });
+
+        // Navigation Dot Interactions
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', function () {
+                const sectionIndex = parseInt(this.dataset.section);
+                const targetSection = document.querySelectorAll('.hero')[sectionIndex];
+
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+
+                document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Hover Effects
+        document.querySelectorAll('.phone-image').forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                const rect = img.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+                img.style.transform = `perspective(1000px) 
+                                      rotateX(${y * 10}deg) 
+                                      rotateY(${x * 10}deg) 
+                                      translateZ(30px)`;
+            });
+
+            img.addEventListener('mouseleave', () => {
+                img.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+    </script>
+</body>
+
+</html>

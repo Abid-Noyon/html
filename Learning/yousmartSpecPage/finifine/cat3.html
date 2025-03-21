@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop by Category</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            /* Enable wrapping for responsiveness */
+            justify-content: space-between;
+            width: 1066px;
+            /* Main container width */
+            margin: 0 auto;
+            /* Center the container */
+        }
+
+        .category {
+            width: 250px;
+            /* Default width for desktop */
+            text-align: center;
+            margin-bottom: 20px;
+            /* Add spacing between rows */
+        }
+
+        .category img {
+            width: 100%;
+            /* Image fits the width of the category div */
+            height: auto;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .category:hover img {
+            transform: scale(1.05);
+            /* Slight zoom on hover */
+            opacity: 0.9;
+        }
+
+        .category-title {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: black;
+            /* Link color set to black */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .category-title:hover {
+            color: #003366;
+            /* Optional hover color */
+        }
+
+        .product-count {
+            font-size: 14px;
+            color: black;
+            /* Link color set to black */
+            text-decoration: none;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .categories {
+                width: 100%;
+                /* Full width for mobile */
+                padding: 0 15px;
+                /* Add some padding */
+                justify-content: center;
+                /* Center the single column */
+            }
+
+            .category {
+                width: 100%;
+                /* Full width for each category div */
+                max-width: 300px;
+                /* Limit max width for better appearance */
+            }
+
+            .category img {
+                width: 100%;
+                /* Image adjusts to fit the div */
+            }
+
+            .category-title,
+            .product-count {
+                text-align: center;
+                /* Ensure text remains centered */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="categories">
+        <!-- Category 1 -->
+        <div class="category">
+            <a href="#">
+                <img src="https://store.promely.com/wp-content/uploads/2024/12/03_594x.progressive.png.webp" alt="New">
+                <div class="category-title">New</div>
+                <div class="product-count">25 Products</div>
+            </a>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="category">
+            <a href="#">
+                <img src="https://store.promely.com/wp-content/uploads/2024/12/02_594x.progressive.png.webp"
+                    alt="Clothing">
+                <div class="category-title">Clothing</div>
+                <div class="product-count">20 Products</div>
+            </a>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="category">
+            <a href="#">
+                <img src="https://store.promely.com/wp-content/uploads/2024/12/03_594x.progressive.png.webp"
+                    alt="Shoes">
+                <div class="category-title">Shoes</div>
+                <div class="product-count">32 Products</div>
+            </a>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="category">
+            <a href="#">
+                <img src="https://store.promely.com/wp-content/uploads/2024/12/02_594x.progressive.png.webp"
+                    alt="Accessories">
+                <div class="category-title">Accessories</div>
+                <div class="product-count">15 Products</div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Consultation & WhatsApp Button</title>
+
+    <!-- Google Calendar Button Styles -->
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+
+    <style>
+        /* Floating Buttons Container */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        /* General Button Styling */
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #0B8043;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Cool Hover Effect */
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Google Calendar Button */
+        #consultation-btn {
+            animation: bounce 1.5s infinite;
+            background: #0B8043;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            padding: 15px 10px;
+            border-radius: 50px;
+            width: auto;
+            height: auto;
+            min-width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* WhatsApp Button */
+        #whatsapp-btn {
+            background: #25D366;
+            animation: pulse 1.5s infinite;
+        }
+
+        #whatsapp-btn img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Bounce Animation */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            #consultation-btn {
+                font-size: 12px;
+                min-width: 150px;
+                padding: 10px;
+            }
+
+            #whatsapp-btn img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <!-- Google Calendar Free Consultation Button -->
+        <div id="consultation-btn">📅 Free Consultation</div>
+
+        <!-- WhatsApp Contact Button -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="floating-btn" id="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+    </div>
+
+    <!-- Google Calendar Appointment Scheduling Script -->
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+    <script>
+        (function () {
+            window.addEventListener('load', function () {
+                const consultationBtn = document.getElementById("consultation-btn");
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2jzSvGcrb0hs_eqOfjP-hKd07sK96dGku_XeVEZpFepwHbp_IQx0YK5OnGe9EieZoYTJwadCqi?gv=true',
+                    color: '#0B8043',
+                    label: "Book Your Free Consultation Now",
+                    target: consultationBtn
+                });
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

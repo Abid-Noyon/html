@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="""en">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="""viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Review Slider</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .review-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1066px;
+            height: 550px;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .review-card {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .review-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .review-card .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .review-card .designation {
+            font-size: 14px;
+            color: gray;
+            margin-bottom: 10px;
+        }
+
+        .review-card .review-text {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .radio-buttons {
+            position: absolute;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .radio-buttons input[type="radio"] {
+            display: none;
+        }
+
+        .radio-buttons label {
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .radio-buttons input[type="radio"]:checked+label {
+            background: #007bff;
+        }
+
+        @media (max-width: 1024px) {
+            .review-slider {
+                max-width: 768px;
+            }
+
+            .slider-container {
+                width: 200%;
+            }
+
+            .review-card {
+                flex: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .review-slider {
+                width: 100%;
+            }
+
+            .slider-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="review-slider">
+        <div class="slider-container" id="slider-container">
+            <!-- Review cards will be generated here -->
+        </div>
+        <div class="radio-buttons" id="radio-buttons">
+            <!-- Radio buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const reviews = [
+            {
+                img: "https://naturals.com.bd/wp-content/uploads/2020/10/circle-dkroy.png",
+                name: "John Doe",
+                designation: "Software Engineer",
+                text: "This product is amazing! Highly recommended for everyone looking for quality and performance."
+            },
+            {
+                img: "https://naturals.com.bd/wp-content/uploads/2020/10/circle-dkroy.png",
+                name: "Jane Smith",
+                designation: "Designer",
+                text: "I've been using this for months, and it has never let me down. Exceptional service!"
+            },
+            {
+                img: "https://naturals.com.bd/wp-content/uploads/2020/10/circle-dkroy.png",
+                name: "Alex Johnson",
+                designation: "Entrepreneur",
+                text: "A game-changer for my business. Easy to use, reliable, and worth every penny!"
+            }
+        ];
+
+        const sliderContainer = document.getElementById('slider-container');
+        const radioButtonsContainer = document.getElementById('radio-buttons');
+
+        reviews.forEach((review, index) => {
+            // Create review card
+            const reviewCard = document.createElement('div');
+            reviewCard.className = 'review-card';
+            reviewCard.innerHTML = `
+                <img src="${review.img}" alt="Profile ${index + 1}">
+                <div class="name">${review.name}</div>
+                <div class="designation">${review.designation}</div>
+                <div class="review-text">"${review.text}"</div>
+            `;
+            sliderContainer.appendChild(reviewCard);
+
+            // Create radio button
+            const radioButton = document.createElement('input');
+            radioButton.type = 'radio';
+            radioButton.name = 'slider';
+            radioButton.id = `slide${index + 1}`;
+            if (index === 0) radioButton.checked = true;
+            radioButtonsContainer.appendChild(radioButton);
+
+            const radioLabel = document.createElement('label');
+            radioLabel.htmlFor = `slide${index + 1}`;
+            radioButtonsContainer.appendChild(radioLabel);
+        });
+
+        const radioButtons = document.querySelectorAll('.radio-buttons input');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            sliderContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function autoSlide() {
+            currentIndex = (currentIndex + 1) % radioButtons.length;
+            radioButtons[currentIndex].checked = true;
+            updateSlider();
+        }
+
+        radioButtons.forEach((button, index) => {
+            button.addEventListener('change', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+        });
+
+        setInterval(autoSlide, 5000); // Slide every 5 seconds
+    </script>
+</body>
+
+</html>

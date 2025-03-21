@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DentaCare | Premium Root Canal Solutions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2A9D8F;
+            --secondary-color: #264653;
+            --accent-color: #E9C46A;
+            --text-dark: #2B2D42;
+            --text-light: #EDF2F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(42, 157, 143, 0.1), rgba(255, 255, 255, 0.9)),
+                url('https://images.unsplash.com/photo-1588774069410-84ae30757c8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeIn 1s ease forwards;
+        }
+        .hero button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            border: none;
+            background: #ff5733;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            animation: fadeIn 4s;
+        }
+
+        .hero button:hover {
+            background: #c70039;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 5rem 10%;
+            background: #f8f9fa;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .process-card.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 5rem 10%;
+            background: linear-gradient(45deg, var(--primary-color), #21867a);
+            color: white;
+        }
+
+        .price-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            margin: 2rem 0;
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: scale(1);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">DentaCare</div>
+        <nav class="nav-links">
+            <a href="#process">Process</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#why-us">Why Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pain-Free Root Canal Treatment in Bangladesh</h1>
+            <p class="scroll-reveal">Advanced dental care with modern technology and expert specialists</p>
+            <button class="cta-btn scroll-reveal">Book Consultation</button>
+        </div>
+    </section>
+
+    <section id="process" class="process-section">
+        <h2 class="scroll-reveal">Our Treatment Process</h2>
+        <div class="process-grid">
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-tooth fa-3x" style="color: var(--primary-color);"></i>
+                <h3>1. Diagnosis</h3>
+                <p>Advanced 3D imaging for accurate assessment</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-syringe fa-3x" style="color: var(--primary-color);"></i>
+                <h3>2. Treatment</h3>
+                <p>Painless procedure with modern anesthesia</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-tooth fa-3x" style="color: var(--primary-color);"></i>
+                <h3>3. Recovery</h3>
+                <p>Post-treatment care & follow-up</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <h2 class="scroll-reveal">Transparent Pricing</h2>
+        <div class="price-card scroll-reveal">
+            <h3>Basic Root Canal</h3>
+            <p class="price">৳8,000 - ৳12,000</p>
+            <ul>
+                <li>Single sitting treatment</li>
+                <li>Standard filling</li>
+                <li>6-month warranty</li>
+            </ul>
+        </div>
+        <div class="price-card scroll-reveal">
+            <h3>Premium Care</h3>
+            <p class="price">৳15,000 - ৳25,000</p>
+            <ul>
+                <li>Laser-assisted treatment</li>
+                <li>Ceramic crown included</li>
+                <li>2-year warranty</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="why-us" class="process-section" style="background: white;">
+        <h2 class="scroll-reveal">Why Choose DentaCare?</h2>
+        <div class="process-grid">
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-user-md fa-3x" style="color: var(--primary-color);"></i>
+                <h3>Expert Specialists</h3>
+                <p>15+ years experienced endodontists</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-shield-alt fa-3x" style="color: var(--primary-color);"></i>
+                <h3>Sterile Environment</h3>
+                <p>WHO-standard sterilization protocols</p>
+            </div>
+            <div class="process-card scroll-reveal">
+                <i class="fas fa-clock fa-3x" style="color: var(--primary-color);"></i>
+                <h3>24/7 Emergency</h3>
+                <p>Immediate care when you need it</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Scroll Reveal Animation
+        const scrollReveals = document.querySelectorAll('.scroll-reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        scrollReveals.forEach(el => observer.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
